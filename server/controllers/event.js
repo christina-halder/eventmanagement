@@ -1,11 +1,11 @@
 const Event = require('../models').event;
 
 module.exports = {
-    // all_users(req, res) {
-    //     return User.all().
-    //         then(user => res.status(201).send()).
-    //     catch(error => res.status(400).send(error))
-    // },
+    index(req, res) {
+        return Event.all().
+            then(events => res.status(200).send(events)).
+        catch(error => res.status(400).send(error))
+    },
     create(req, res) {
         return Event.create({
                 name: req.body.name,
@@ -14,7 +14,7 @@ module.exports = {
                 month: req.body.month,
                 date: req.body.date,
             }).
-            then(user => res.status(201).send(event)).
+            then(event => res.status(200).send(event)).
         catch(error => res.status(400).send(error));
     },
 };
