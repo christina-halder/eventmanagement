@@ -6,7 +6,7 @@ module.exports = (app) => {
         eventsController.index(req, res)
     });
 
-    app.post('api//event/create', function(req, res) {
+    app.post('/api/event/create', function(req, res) {
         eventsController.create(req, res)
     });
 };
