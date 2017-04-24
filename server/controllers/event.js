@@ -17,6 +17,11 @@ module.exports = {
             then(event => res.status(200).send(event)).
         catch(error => res.status(400).send(error));
     },
+    delete(req, res) {
+        return Event.destroy({
+            id: req.params.id
+        }.
+        then(event => res.status((200).send(event)).
+        catch(error => res.status(400).send(error));
+    }
 };
-
-

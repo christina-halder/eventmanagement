@@ -9,4 +9,8 @@ module.exports = (app) => {
     app.post('/api/event/create', function(req, res) {
         eventsController.create(req, res)
     });
+
+    app.delete('/api/events/:id', function(req, res) {
+        eventsController.delete(req, res)
+    });
 };
