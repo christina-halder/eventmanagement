@@ -18,10 +18,18 @@ module.exports = {
         catch(error => res.status(400).send(error));
     },
     delete(req, res) {
-        return Event.destroy({
-            id: req.params.id
-        }.
-        then(event => res.status((200).send(event)).
-        catch(error => res.status(400).send(error));
-    }
+        Event.findById(req.params.id).
+        then(function(event){
+            event.destroy();
+            event => res.status(200).send(event)
+        });
+    },
+    // delete(req, res) {
+    //     return Event.findById(req.params.id).
+    //     then(function(err, event){
+    //         event.destroy().
+    //         then(function(err){}
+    //         );
+    //     })
+    // }
 };
