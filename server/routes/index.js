@@ -10,6 +10,10 @@ module.exports = (app) => {
         eventsController.create(req, res)
     });
 
+    app.options('/api/events/:id', function(req, res) {
+        res.sendStatus(200);
+    });
+
     app.delete('/api/events/:id', function(req, res) {
         eventsController.delete(req, res)
     });

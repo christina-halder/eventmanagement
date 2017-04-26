@@ -1,9 +1,16 @@
 var express = require('express');
+var cors = require('cors')
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
+
+var corsOptions = {
+    origin: 'http://localhost:3002',
+    optionsSuccessStatus: 200
+};
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -18,7 +25,7 @@ app.set('view engine', 'jade');
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.header("Access-Control-Allow-Methods", "POST, PUT, DELETE, GET, OPTIONS");
+    // res.header("Access-Control-Allow-Methods", "POST, PUT, DELETE, GET, OPTIONS");
     next();
 });
 
